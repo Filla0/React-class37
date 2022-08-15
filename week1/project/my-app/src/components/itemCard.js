@@ -2,8 +2,8 @@ import "./itemCard.css";
 
 function Item(props) {
   return (
-    <div>
-      <img src={props.image} alt={props.title}></img>
+    <div className="container">
+      <img src={props.image} alt={props.title} />
       <span>{props.title}</span>
     </div>
   );

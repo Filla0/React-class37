@@ -11,7 +11,6 @@ function TabButtons(props) {
           {/* Use name of button for click handling */}
           <button
             onClick={(e) => props.tabchangeclick(e, cat)}
-            key={cat}
             //Apply active class for css
             className={props.activeTab === cat ? "active" : ""}
           >
