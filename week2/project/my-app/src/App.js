@@ -2,14 +2,14 @@ import "./App.css";
 import { useState } from "react";
 import CategoryList from "./components/CategoryList.js";
 import Products from "./components/Products.js";
-import FetchData from "./Fetch-data.js";
+import useFetchData from "./useFetchData.js";
 
 const App = () => {
   const [category, setCategory] = useState("allCategories");
   const [categories, setCategories] = useState([]);
   const URL = "https://fakestoreapi.com/products/categories";
 
-  const { loading, error } = FetchData(URL, setCategories);
+  const { loading, error } = useFetchData(URL, setCategories);
 
   return (
     <div className="App">

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import FetchData from "../Fetch-data";
+import useFetchData from "../useFetchData";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const URL = `https://fakestoreapi.com/products/${id}`;
-  const { loading, error } = FetchData(URL, setProduct);
+  const { loading, error } = useFetchData(URL, setProduct);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -14,9 +14,9 @@ const ProductDetails = () => {
     return <div>Error</div>;
   }
   return (
-    <div className="detail">
+    <div className="product-detail">
       <h1>{product.title}</h1>
-      <div className="detail-1">
+      <div className="detail-container">
         <p>{product.description}</p>
         <img src={product.image} alt={product.title} />
       </div>
@@ -25,35 +25,3 @@ const ProductDetails = () => {
   );
 };
 export default ProductDetails;
-//   const [product, setProduct] = useState({});
-//   const { id } = useParams();
-//   const URL_item = `https://fakestoreapi.com/products/${id}`;
-
-//   const { loading, error } = FetchData(URL_item, setProduct);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-//   if (error) {
-//     return <div>Error</div>;
-//   }
-
-//   //   if (loading) return <Loading />;
-//   //   if (error) return <Error />;
-
-//   return (
-//     <div className="App">
-//       <h1>{product.title}</h1>
-//       <div className="product-details">
-//         <img
-//           className="product-image"
-//           src={product.image}
-//           alt={product.title}
-//         />
-//         <p className="product-description">{product.description}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProductDetails;
